@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import LoginContext from "./LoginContext";
 import axios from "axios";
+import View from "./ViewEmployee";
+import { Typography } from "@mui/material";
 
 const getToken = () => {
   return sessionStorage.getItem("accessToken");
@@ -8,7 +10,7 @@ const getToken = () => {
 
 const TenentEmployee = () => {
   const [data, setData] = useState("");
-  const { logout } = useContext(LoginContext);
+  const { logout, profile } = useContext(LoginContext);
 
   useEffect(() => {
     axios
@@ -27,6 +29,12 @@ const TenentEmployee = () => {
   return (
     <>
       <h1>{data}</h1>
+      <Typography>{`name - ${profile}`}</Typography>
+      <br />
+      <br />
+      <View />
+      <br />
+      <br />
       <button onClick={() => logout()}>log out</button>
     </>
   );

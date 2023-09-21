@@ -6,6 +6,7 @@ import PlatformAdmin from "../PlatformAdmin";
 import PlatformEmployee from "../PlatformEmployee";
 import TenentAdmin from "../TenentAdmin";
 import TenentEmployee from "../TenentEmployee";
+import AddEmployee from "../AddEmployee";
 
 // const hrPages = [
 //   { title: "Dashboard", path: "/Dashboard", icon: <QueryStatsIcon /> },
@@ -80,6 +81,7 @@ export default function Dashboard() {
         {roles.includes("tenentAdmin") && (
           <Routes>
             <Route path="" element={<TenentAdmin />} />
+            <Route path="add-employee" element={<AddEmployee />} />
           </Routes>
         )}
         {roles.includes("tenentEmployee") && (
